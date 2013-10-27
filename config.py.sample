@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+
+SETTINGS = dict (
+    template_path = os.path.join(os.path.dirname(__file__), "views"),
+    static_path = os.path.join(os.path.dirname(__file__), "static"),
+    database = 'dev_blog2',
+    debug = True
+)
