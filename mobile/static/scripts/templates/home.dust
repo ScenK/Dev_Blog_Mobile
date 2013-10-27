@@ -1,3 +1,14 @@
 {#data}
-  <div>{title}</div>
+  <div class="post">
+    <h1><a href="">{title}</a></h1>
+    <div class="author">
+      <span>作者:</span> <a>tuzii</a>
+      <span>日期:</span> 2013-10-24 21:27
+      <span>标签:</span> {#tags}<a href="">{.}</a>{/tags}
+    </div>
+    <p>{summary}</p>
+    <div class="post-comment-entice">
+      <p><span class="post-comments"><a href="/diary/52692033848eea73e7d63e1e/使用Tornado开发WebService和跨域JSONP">0 Comments </a></span></p>
+    </div>
+  </div>
 {/data}

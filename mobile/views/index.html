@@ -4,11 +4,19 @@
   <title>Tuziidev Mobile</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="{{ static_url('content/css/style.css') }}">
 </head>
 <body>
-  <div class='container'>
-  Let`s rock!
-  <h1>Loading...</h1>
+  <div id="loading" class="hide">
+    <div class="t-center" style="position: relative; margin: 7% auto 0; z-index: 1050;">
+      <i class="loading"></i>
+    </div>
+    <div style="opacity: 0.95;position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1040;background-color: #EDEDED;"></div>
+  </div>
+
+  <div id='container'>
+    <div id="content-container">
+    </div>
   </div>
   <script type="text/javascript" src="{{ static_url('scripts/vendor/require.js') }}" data-main="{{ static_url('scripts/config') }}"></script>
 

@@ -13,7 +13,7 @@ define(function (require) {
         url: window.DevBlog.apiRoot + endpoint + page_num,
         dataType: 'JSONP'
       }).done(function (data) {
-        console.log('base.fetch.from.api: ' + endpoint);
+        console.log('base.fetch.from.api: ' + endpoint + page_num);
         d.resolve(data);
       });
 
