@@ -1,13 +1,13 @@
 define(function (require) {
-  var Base         = require('src/views/base'),
-      Diary        = require('src/models/diary'),
-      dust         = require('dust');
+  var Base  = require('src/views/base'),
+      Diary = require('src/models/diary'),
+      dust  = require('dust');
 
   var HomeView = Base.extend({
     el: "#wrapper",
 
     opts: {},
-    
+
     initialize: function () {
       var self = this;
 
@@ -19,11 +19,6 @@ define(function (require) {
 
       this.render(self.opts);
 
-      _.bindAll(this, 'scrollEnd');
-      _.bindAll(this, 'loadMore');
-
-      $(window).scroll(self.scrollEnd);
-
     },
 
     scrollEnd: function (e) {
@@ -31,12 +26,14 @@ define(function (require) {
       var self = this;
       
       var window_height   = $(window).height();
-      var scroll_top      = $(window).scrollTop();
-      var document_height = $(document).height();
+      var scroll_top      = self.$el.find('#content').scrollTop();
+      var document_height = self.$el.find('#blogList').height();
 
       if( scroll_top + window_height >= document_height - 20) {
         clearTimeout(self.timmer);
-        self.timmer = setTimeout(self.loadMore, 300);
+        self.timmer = setTimeout( function () {
+          self.loadMore();
+        }, 300);
       }
     },
 
@@ -69,6 +66,11 @@ define(function (require) {
         self.setElement('#wrapper');
         self.hideLoading();
         self.opts.first_render = false;
+
+        // bind scroll function on content
+        self.$el.find('#content').on('scroll', function (e) {
+          self.scrollEnd(e);
+        });
 
         // init base function
         self.init();

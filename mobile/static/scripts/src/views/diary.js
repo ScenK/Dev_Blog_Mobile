@@ -1,7 +1,7 @@
 define(function (require) {
-  var Base         = require('src/views/base'),
-      Diary        = require('src/models/diary'),
-      dust         = require('dust');
+  var Base  = require('src/views/base'),
+      Diary = require('src/models/diary'),
+      dust  = require('dust');
 
   var DiaryView = Base.extend({
     el: "#wrapper",
