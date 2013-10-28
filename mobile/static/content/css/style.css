@@ -168,6 +168,8 @@ nav ul, nav ol {
 }
 
 img {
+  width: 100%;
+  height: auto;
   border: 0;
   -ms-interpolation-mode: bicubic;
 }

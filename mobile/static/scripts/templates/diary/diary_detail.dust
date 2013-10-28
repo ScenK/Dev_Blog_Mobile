@@ -1,0 +1,106 @@
+<section id="contentWrapper">   
+
+  <!--  Header   -->
+  <header id="header">
+    <a id="topBarIconBackList" class="navigate" data-href="/"></a>
+    
+    <div id="imgLogo"></div>
+    <!-- Optional Text Headline <h1 id="textLogo">Ultimate</h1> -->
+    
+    <a id="topBarIconShare" class="ShareDialogTrigger"></a>
+    
+    <!-- Share Dialog, put this right after share icon -->
+    <div class="shareDialog shareDialogMenu">
+      <div class="shareDialogArrow"></div>
+      <div class="shareDialogContent">
+        <ul class="shareDialogIconList">
+          <li><a href=""><div class="shareDialogMail"></div>Mail Link</a></li>
+          <li><a href="" target="_blank"><div class="shareDialogFb"></div>Share Link</a></li>
+          <li><a href="" target="_blank"><div class="shareDialogTwitter"></div>Tweet Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!--  =Header  -->
+                       
+  <div class="siteLoader">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  {#data}
+  <!--  Main Content-->
+  <section id="content">
+    <!-- Wrapped Content -->
+    <div id="blogSingle" class="wrappedContent">
+    
+      <!-- Blog Meta -->
+      <p class="listMeta">
+        <span class="listMetaDate"><span class="webFont">P</span> {publish_time}</span>
+        <span class="listMetaAuthor">John Doe</span>
+      </p>
+      
+      <h2> {title} </h2>
+      {html|s}
+    </div>
+    <!-- =Wrapped Content -->
+    
+    <!-- Comments -->
+    <div class="cutOffStripesContainer greyBg">
+      <div class="cutOffStripeTop"></div>
+      &nbsp;
+      <div class="cutOffStripeBottom"></div>
+    </div>
+    <div id="comments">
+      {#comments} 
+      <div class="comment-item">
+        <div class="comment-meta">
+          <img class="imgBorder" src="" alt="Admin">
+
+          <h4>{author}</h4><span class="comment-time">1 day ago</span>
+        </div>
+
+        <div class="comment-content">
+            <p>{content}</p>
+        </div>
+      </div>
+   
+      <div class="cutOffStripesContainer greyBg">
+        <div class="cutOffStripeTop"></div>
+        &nbsp;
+        <div class="cutOffStripeBottom"></div>
+      </div>
+      {/comments}    
+    <!-- =Comments --> 
+        
+    <!-- Comment form -->
+    <div class="wrappedContent">
+      <h2>Leave an Comment!</h2>           
+      <form method="post" action="http://jansimecek.com/themes/ultimate/HTML/index.html" name="contactform" class="input-form commentForm">
+        <p>
+          <label for="name" accesskey="U"><span class="required">*</span> Your Name</label>
+          <input name="name" type="text" id="name" size="30" value="" />
+        </p>
+
+        <p>
+          <label for="email" accesskey="E"><span class="required">*</span> Email</label>
+          <input name="email" type="text" id="email" size="30" value="" />
+        </p>
+
+        <p>
+          <label for="commentsTa" accesskey="C"><span class="required">*</span> Your comment</label>
+          <textarea name="comments" cols="40" rows="3" id="commentsTa"></textarea>
+        </p>
+
+        <p>
+          <input class="button submit" type="submit" id="submit" value="Submit" />
+        </p>
+      </form>
+    </div>
+    <!-- =Comment form --> 
+  </section>
+  <!-- =Main Content  -->
+  {/data}
+</section>
+<!-- =Content Wrapper -->

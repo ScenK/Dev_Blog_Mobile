@@ -6,7 +6,6 @@ define(function (require) {
 
     init: function () {
       $('.navigate').on('click', this.navigate);
-      $('#listMenu a, #blogList a, #topBarIconBackList').on('click', this.showLoading);
       $('#topBarIconMenu').on('click', this.toggleMenu);
     },
 
@@ -16,30 +15,29 @@ define(function (require) {
       if (href === "") {
         return;
       }
-      Backbone.history.navigate(window.NSPF.root.toLowerCase() + href, { trigger: true });
-    },
 
-    showLoading: function () {
-      var anchor = $(this), h;
-      h = anchor.attr('href');
-      if($('#contentWrapper').hasClass('activeState')){
-      $('#contentWrapper').removeClass('activeState');
-      console.log("Menu has CLASS");
-      setTimeout(function(){
-        $('#content').removeClass('activeState');
-        $('#header').removeClass('activeState');
-          setTimeout(function(){
-              // window.location = h;
+      if( $('#contentWrapper').hasClass('activeState') ) {
+        $('#contentWrapper').removeClass('activeState');
+        console.log("Menu has CLASS");
+        setTimeout(function(){
+          $('#content').removeClass('activeState');
+          $('#header').removeClass('activeState');
+            setTimeout(function(){
+              Backbone.history.navigate(href, { trigger: true });
+            },400);
           },400);
-        },400);
       } else {
         console.log("Normal Anchor");
         $('#content').removeClass('activeState');
         $('#header').removeClass('activeState');
         setTimeout(function(){
-          // window.location = h;
+          Backbone.history.navigate(href, { trigger: true });
         },400);
       }
+    },
+
+    showLoading: function (e) {
+
     },
 
     hideLoading: function () {

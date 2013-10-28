@@ -1,6 +1,6 @@
 {#data}
 <li>
-  <a href="blog-single.html">
+  <a data-href="diary/{_id.$oid}" class="navigate">
     <p class="listMeta">
       <span class="listMetaDate"><span class="webFont">P</span> {publish_time}</span>
       <span class="listMetaAuthor">John Doe</span>

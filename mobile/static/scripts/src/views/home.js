@@ -6,19 +6,16 @@ define(function (require) {
   var HomeView = Base.extend({
     el: "#wrapper",
 
-    events: {
-      'scroll document': 'loadMore'
-    },
-
-    opts : {
-      page_num     : 1,
-      first_render : true
-    },
-
+    opts: {},
+    
     initialize: function () {
       var self = this;
 
       this.diary = new Diary();
+
+      // init opts
+      this.opts.page_num = 1;
+      this.opts.first_render = true;
 
       this.render(self.opts);
 
@@ -53,7 +50,6 @@ define(function (require) {
       // Get 10 Diaries From API
       this.diary.fetchDiaryList(opts.page_num).done( function (data) {
         self.opts.page_num += 1;
-        console.log(data);
         var response = {
           data: data
         };
@@ -85,7 +81,7 @@ define(function (require) {
       dust.render('tpl_diary_list', resp, function (err, out) {
         self.$el.find('#blogList').append(out);
       });    
-    },
+    }
 
   });
 

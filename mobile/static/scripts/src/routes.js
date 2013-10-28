@@ -5,9 +5,10 @@
  */
 
 define(function (require) {
-  var Backbone = require('backbone'),
-      HomeView = require('src/views/home'),
-      TemplateLoader = require('src/helpers/template_loader'),
+  var Backbone         = require('backbone'),
+      HomeView         = require('src/views/home'),
+      DiaryView        = require('src/views/diary'),
+      TemplateLoader   = require('src/helpers/template_loader'),
       TemplateCompiled = require('src/helpers/template_compiled');
 
   var Router = Backbone.Router.extend({
@@ -24,6 +25,13 @@ define(function (require) {
       var prefix = opts.prefix.replace(/^\//, '');
 
       this.route(prefix, 'home');
+      this.route(prefix + 'diary/:id', 'diary');
+    },
+
+    diary: function (id) {
+      this._templatesLoaded(function () {
+        var home = new DiaryView({ 'id': id});
+      });
     },
 
     home: function () {
