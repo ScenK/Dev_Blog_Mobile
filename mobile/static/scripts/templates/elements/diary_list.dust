@@ -3,7 +3,7 @@
   <a data-href="diary/{_id.$oid}" class="navigate">
     <p class="listMeta">
       <span class="listMetaDate"><span class="webFont">P</span> {publish_time}</span>
-      <span class="listMetaAuthor">John Doe</span>
+      <span class="listMetaAuthor">{author.name}</span>
     </p>
     <h2>
       {title} <span class="webFont">I</span>

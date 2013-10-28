@@ -38,7 +38,7 @@
       <!-- Blog Meta -->
       <p class="listMeta">
         <span class="listMetaDate"><span class="webFont">P</span> {publish_time}</span>
-        <span class="listMetaAuthor">John Doe</span>
+        <span class="listMetaAuthor">{author.name}</span>
       </p>
       
       <h2> {title} </h2>
@@ -56,9 +56,9 @@
       {#comments} 
       <div class="comment-item">
         <div class="comment-meta">
-          <img class="imgBorder" src="" alt="Admin">
+          {?admin}<img class="imgBorder" src="{avatar|s}" alt="Admin">{/admin}
 
-          <h4>{author}</h4><span class="comment-time">1 day ago</span>
+          <h4>{author}</h4><span class="comment-time">{publish_time}</span>
         </div>
 
         <div class="comment-content">

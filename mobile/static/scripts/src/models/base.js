@@ -2,10 +2,9 @@ define(function (require) {
   var Backbone = require('backbone');
 
   var BaseModel = Backbone.Model.extend({
-    endpoint: 'v1/',
 
     fetchUser: function () {
-      var endpoint = this.endpoint + 'user/profile';
+      var endpoint = 'user/profile';
 
       var d = $.Deferred();
 
@@ -14,6 +13,7 @@ define(function (require) {
         dataType: 'JSONP'
       }).done(function (data) {
         console.log('base.fetch.from.api: ' + endpoint);
+        data = data.response;
         d.resolve(data);
       });
 
