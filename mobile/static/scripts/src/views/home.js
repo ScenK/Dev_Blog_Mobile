@@ -1,13 +1,13 @@
 define(function (require) {
-  var Base  = require('src/views/base'),
-      Diary = require('src/models/diary'),
-      dust  = require('dust');
+  var Base         = require('src/views/base'),
+      Diary        = require('src/models/diary'),
+      dust         = require('dust');
 
   var HomeView = Base.extend({
-    el: "#content-container",
+    el: "#wrapper",
 
     events: {
-      // 'scroll document': 'loadMore'
+      'scroll document': 'loadMore'
     },
 
     opts : {
@@ -19,6 +19,7 @@ define(function (require) {
       var self = this;
 
       this.diary = new Diary();
+
       this.render(self.opts);
 
       _.bindAll(this, 'scrollEnd');
@@ -49,7 +50,7 @@ define(function (require) {
     render: function (opts) {
       var self = this;
 
-      self.showLoading();
+      // Get 10 Diaries From API
       this.diary.fetchDiaryList(opts.page_num).done( function (data) {
         self.opts.page_num += 1;
         console.log(data);
@@ -69,21 +70,22 @@ define(function (require) {
 
       dust.render('tpl_home', resp, function (err, out) {
         self.$el.off().html(out);
-        self.setElement('#content-container');
+        self.setElement('#wrapper');
         self.hideLoading();
         self.opts.first_render = false;
+
+        // init base function
+        self.init();
       });
+
     },
 
     moreRender: function (resp) {
       var self = this;
-
-      dust.render('tpl_home', resp, function (err, out) {
-        self.$el.off().append(out);
-        self.setElement('#content-container');
-        self.hideLoading();
+      dust.render('tpl_diary_list', resp, function (err, out) {
+        self.$el.find('#blogList').append(out);
       });    
-    }
+    },
 
   });
 

@@ -1,14 +1,40 @@
-{#data}
-  <div class="post">
-    <h1><a href="">{title}</a></h1>
-    <div class="author">
-      <span>作者:</span> <a>tuzii</a>
-      <span>日期:</span> 2013-10-24 21:27
-      <span>标签:</span> {#tags}<a href="">{.}</a>{/tags}
-    </div>
-    <p>{summary}</p>
-    <div class="post-comment-entice">
-      <p><span class="post-comments"><a href="/diary/52692033848eea73e7d63e1e/使用Tornado开发WebService和跨域JSONP">0 Comments </a></span></p>
-    </div>
+{>tpl_sidebar/}
+<!-- Content Wrapper -->
+<section id="contentWrapper">
+     
+  <!--    Header   -->
+    <header id="header">
+      <a id="topBarIconMenu"></a>
+      <div id="imgLogo"></div>
+      <!-- Optional Text Headline <h1 id="textLogo">Ultimate</h1> -->
+    </header>
+  <!--   =Header    -->
+                           
+  <div class="siteLoader">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
-{/data}
+    
+    <!--      Main Content-->
+    <section id="content">
+    
+      <!-- Blog -->
+      <ul id="blogList">
+        {>tpl_diary_list/}
+      </ul>
+      <!-- =Blog -->
+   
+      <!-- Loader -->
+      <div class="greyBg cutOffStripesContainer hover">
+       <div class="cutOffStripeTop"></div>
+       <div class="webFont">V</div>
+       <div class="cutOffStripeBottom"></div>
+     </div>
+     <!-- =Loader -->
+   
+      &nbsp;
+    </section>
+    <!--    =Main Content-->
+</section>
+<!-- =Content Wrapper -->

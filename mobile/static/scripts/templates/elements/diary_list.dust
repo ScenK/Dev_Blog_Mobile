@@ -1,0 +1,16 @@
+{#data}
+<li>
+  <a href="blog-single.html">
+    <p class="listMeta">
+      <span class="listMetaDate"><span class="webFont">P</span> {publish_time}</span>
+      <span class="listMetaAuthor">John Doe</span>
+    </p>
+    <h2>
+      {title} <span class="webFont">I</span>
+    </h2>
+    <p>
+      {summary|s}
+    </p>
+  </a>
+</li>
+{/data}
