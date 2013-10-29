@@ -9,6 +9,12 @@ define(function (require) {
       $('#topBarIconMenu').on('click', this.toggleMenu);
     },
 
+    refresh: function () {
+      $('.navigate').off('click', this.navigate);
+      $('#topBarIconMenu').off('click', this.toggleMenu);
+      this.init();
+    },
+
     navigate: function (e) {
       e.preventDefault();
       var href = $(e.currentTarget).data('href');

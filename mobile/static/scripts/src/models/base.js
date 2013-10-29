@@ -22,9 +22,14 @@ define(function (require) {
 
     formatUTCTime: function (seconds) {
       
+      // exap: "Fri Oct 25 2013 05:27:15 GMT+0800 (CST)"
       var r = new Date(parseInt(seconds));
 
-      return r.toLocaleString();
+      // exap: "Fri Oct 25 2013"
+      r = r.toDateString();
+
+      // exap: "Oct 25 2013"
+      return r.substring(4);
     }
     
   });

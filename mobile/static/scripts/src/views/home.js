@@ -82,6 +82,9 @@ define(function (require) {
       var self = this;
       dust.render('tpl_diary_list', resp, function (err, out) {
         self.$el.find('#blogList').append(out);
+
+        // refresh base function
+        self.refresh();
       });    
     }
 
