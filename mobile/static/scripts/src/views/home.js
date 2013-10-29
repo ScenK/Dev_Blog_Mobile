@@ -47,7 +47,7 @@ define(function (require) {
     render: function (opts) {
       var self = this;
 
-      // Get 10 Diaries From API also Load Sidebar
+      // Get 10 Diaries From API, also Load Sidebar
       $.when(
         self.diary.fetchDiaryList(opts.page_num),
         self.category.fetchCategoryList()

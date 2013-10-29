@@ -8,6 +8,7 @@ define(function (require) {
   var Backbone         = require('backbone'),
       HomeView         = require('src/views/home'),
       DiaryView        = require('src/views/diary'),
+      CategoryView     = require('src/views/category'),
       TemplateLoader   = require('src/helpers/template_loader'),
       TemplateCompiled = require('src/helpers/template_compiled');
 
@@ -26,11 +27,18 @@ define(function (require) {
 
       this.route(prefix, 'home');
       this.route(prefix + 'diary/:id', 'diary');
+      this.route(prefix + 'category/:id', 'category');
+    },
+
+    category: function (id) {
+      this._templatesLoaded(function () {
+        var category = new CategoryView({ 'id': id })
+      });
     },
 
     diary: function (id) {
       this._templatesLoaded(function () {
-        var home = new DiaryView({ 'id': id});
+        var home = new DiaryView({ 'id': id });
       });
     },
 
