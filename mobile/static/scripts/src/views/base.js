@@ -7,11 +7,15 @@ define(function (require) {
     init: function () {
       $('.navigate').on('click', this.navigate);
       $('#topBarIconMenu').on('click', this.toggleMenu);
+      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').on('click', this.toggleActive);
+      $('.ShareDialogTrigger').on('click', this.toggleShareMenu);
     },
 
     refresh: function () {
       $('.navigate').off('click', this.navigate);
       $('#topBarIconMenu').off('click', this.toggleMenu);
+      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').off('click', this.toggleActive);
+      $('.ShareDialogTrigger').off('click', this.toggleShareMenu);
       this.init();
     },
 
@@ -69,6 +73,23 @@ define(function (require) {
         },400);
         this.menuToggling = true;
       }
+    },
+
+    toggleShareMenu: function (e) {
+      var $this = $(e.currentTarget);
+
+      if(this.shareToggling === undefined || this.shareToggling){
+        $this.next().show(0).addClass('activeState');
+        this.shareToggling = false;
+      }else{
+        $this.next().removeClass('activeState').delay(400).hide(0);
+        this.shareToggling = true;
+      }
+    },
+
+    // Icon Active States
+    toggleActive: function (e) { 
+      $(e.currentTarget).toggleClass('activeState');
     }
     
   });
