@@ -1,0 +1,25 @@
+<!-- Comment form -->
+<div class="wrappedContent">
+  <h2>Leave an Comment!</h2>           
+  <form method="post" action="http://jansimecek.com/themes/ultimate/HTML/index.html" name="contactform" class="input-form commentForm">
+    <p>
+      <label for="name" accesskey="U"><span class="required">*</span> Your Name</label>
+      <input name="name" type="text" id="name" size="30" value="" />
+    </p>
+
+    <p>
+      <label for="email" accesskey="E"><span class="required">*</span> Email</label>
+      <input name="email" type="text" id="email" size="30" value="" />
+    </p>
+
+    <p>
+      <label for="commentsTa" accesskey="C"><span class="required">*</span> Your comment</label>
+      <textarea name="comments" cols="40" rows="3" id="commentsTa"></textarea>
+    </p>
+
+    <p>
+      <input class="button submit" type="submit" id="submit" value="Submit" />
+    </p>
+  </form>
+</div>
+<!-- =Comment form --> 

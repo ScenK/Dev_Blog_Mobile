@@ -1,7 +1,8 @@
 define(function (require) {
-  var Base  = require('src/views/base'),
-      Diary = require('src/models/diary'),
-      dust  = require('dust');
+  var Base     = require('src/views/base'),
+      Diary    = require('src/models/diary'),
+      Category = require('src/models/category'),
+      dust     = require('dust');
 
   var HomeView = Base.extend({
     el: "#wrapper",
@@ -11,7 +12,9 @@ define(function (require) {
     initialize: function () {
       var self = this;
 
+      // init models
       this.diary = new Diary();
+      this.category = new Category();
 
       // init opts
       this.opts.page_num = 1;
@@ -44,11 +47,15 @@ define(function (require) {
     render: function (opts) {
       var self = this;
 
-      // Get 10 Diaries From API
-      this.diary.fetchDiaryList(opts.page_num).done( function (data) {
+      // Get 10 Diaries From API also Load Sidebar
+      $.when(
+        self.diary.fetchDiaryList(opts.page_num),
+        self.category.fetchCategoryList()
+      ).done( function (data, categories) {
         self.opts.page_num += 1;
         var response = {
-          data: data
+          data: data,
+          categories: categories
         };
         if( self.opts.first_render === true )
           self.firstRender(response);

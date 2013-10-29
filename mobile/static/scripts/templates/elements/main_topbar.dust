@@ -1,0 +1,6 @@
+<!--    Header   -->
+  <header id="header">
+    <a id="topBarIconMenu"></a>
+    <h1 id="textLogo">{?title} {name} {:else} Ultimate {/title}</h1>
+  </header>
+<!--   =Header    -->

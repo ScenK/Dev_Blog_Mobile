@@ -2,19 +2,19 @@
 <aside id="sidebar">
   <ul id="listMenu">
     <li class="title">Main menu</li>
-    <li><a href="index.html">Blog <span class="counter">27</span></a></li>
-    <li><a href="blogthumbnails.html">Blog With Thumbnails<span class="counter">17</span></a></li>
-    <li><a href="features.html">Features</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="title">Galleries</li>
-    <li><a href="4columngallery.html">4 Column Gallery<span class="counter">193</span></a></li>
-    <li><a href="3columngallery.html">3 Column Gallery<span class="counter">123</span></a></li>
-    <li><a href="2columngallery.html">2 Column Gallery<span class="counter">85</span></a></li>
-    <li class="title">Blog Single</li>
+    <li><a href="">Blog</a></li>
+    <li><a href="">Gallery<span class="counter">17</span></a></li>
+    {#pages}
+    <li><a href="">{name}</a></li>
+    {/pages}
+    <li class="title">ARCHIVES</li>
+    {#categories}
+    <li><a href="4columngallery.html">{name}<span class="counter">{count}</span></a></li>
+    {/categories}
+    <li class="title">Links</li>
+    {#links}
     <li><a href="blog-single.html">Image Post Format</a></li>
-    <li><a href="blog-video.html">Video Post Format</a></li>
-    <li><a href="blog-gallery.html">Gallery Post Format</a></li>
-    <li><a href="blog-blockqute.html">Blockquote Post Format</a></li>
+    {/links}
   </ul>
 </aside>
 <!-- =Aside -->

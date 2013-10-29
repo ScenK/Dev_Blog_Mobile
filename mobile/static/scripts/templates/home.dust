@@ -1,40 +1,34 @@
 {>tpl_sidebar/}
 <!-- Content Wrapper -->
-<section id="contentWrapper">
-     
-  <!--    Header   -->
-    <header id="header">
-      <a id="topBarIconMenu"></a>
-      <div id="imgLogo"></div>
-      <!-- Optional Text Headline <h1 id="textLogo">Ultimate</h1> -->
-    </header>
-  <!--   =Header    -->
-                           
+<section id="contentWrapper">  
+  
+  {>tpl_main_topbar/}
+
   <div class="siteLoader">
     <span></span>
     <span></span>
     <span></span>
   </div>
     
-    <!--      Main Content-->
-    <section id="content">
-    
-      <!-- Blog -->
-      <ul id="blogList">
-        {>tpl_diary_list/}
-      </ul>
-      <!-- =Blog -->
-   
-      <!-- Loader -->
-      <div class="greyBg cutOffStripesContainer hover">
-       <div class="cutOffStripeTop"></div>
-       <div class="webFont">V</div>
-       <div class="cutOffStripeBottom"></div>
-     </div>
-     <!-- =Loader -->
-   
-      &nbsp;
-    </section>
-    <!--    =Main Content-->
+  <!-- Main Content-->
+  <section id="content">
+  
+    <!-- Blog -->
+    <ul id="blogList">
+      {>tpl_diary_list/}
+    </ul>
+    <!-- =Blog -->
+ 
+    <!-- Loader -->
+    <div class="greyBg cutOffStripesContainer hover">
+     <div class="cutOffStripeTop"></div>
+     <div class="webFont">V</div>
+     <div class="cutOffStripeBottom"></div>
+   </div>
+   <!-- =Loader -->
+ 
+    &nbsp;
+  </section>
+  <!-- =Main Content-->
 </section>
 <!-- =Content Wrapper -->
