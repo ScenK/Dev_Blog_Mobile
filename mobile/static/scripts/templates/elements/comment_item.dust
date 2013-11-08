@@ -1,0 +1,16 @@
+<div class="comment-item">
+  <div class="comment-meta">
+    <img class="imgBorder" src="{?admin}{avatar|s}{:else}/static/content/images/guest.jpg{/admin}" alt="Admin">
+    <h4>{author}</h4><span class="comment-time">{publish_time}</span>
+  </div>
+
+  <div class="comment-content">
+    <p>{content}</p>
+  </div>
+</div>
+
+<div class="cutOffStripesContainer greyBg">
+  <div class="cutOffStripeTop"></div>
+  &nbsp;
+  <div class="cutOffStripeBottom"></div>
+</div>

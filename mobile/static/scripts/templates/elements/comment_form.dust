@@ -1,7 +1,7 @@
 <!-- Comment form -->
-<div class="wrappedContent">
+<div class="wrappedContent comment-form-area">
   <h2>Leave an Comment!</h2>           
-  <form method="post" action="http://jansimecek.com/themes/ultimate/HTML/index.html" name="contactform" class="input-form commentForm">
+  <form name="contactform" class="input-form commentForm" data-did={_id.$oid}>
     <p>
       <label for="name" accesskey="U"><span class="required">*</span> Your Name</label>
       <input name="name" type="text" id="name" size="30" value="" />
@@ -18,7 +18,7 @@
     </p>
 
     <p>
-      <input class="button submit" type="submit" id="submit" value="Submit" />
+      <input class="button submit" type="button" id="submit" value="Submit" />
     </p>
   </form>
 </div>
