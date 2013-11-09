@@ -9,7 +9,7 @@ define(function (require) {
 
     opts: {},
 
-    initialize: function () {
+    initialize : function () {
       var self = this;
 
       // init models
@@ -24,7 +24,7 @@ define(function (require) {
 
     },
 
-    scrollEnd: function (e) {
+    scrollEnd : function (e) {
       e.preventDefault(); 
       var self = this;
       
@@ -33,6 +33,7 @@ define(function (require) {
       var document_height = self.$el.find('#blogList').height();
 
       if( scroll_top + window_height >= document_height - 20) {
+        self.transformLoading();
         clearTimeout(self.timmer);
         self.timmer = setTimeout( function () {
           self.loadMore();
@@ -40,11 +41,23 @@ define(function (require) {
       }
     },
 
-    loadMore: function () {
+    transformLoading : function () {
+      var icon       = this.$el.find('#loading_more'),
+          rorate     = 0,
+          rorate_css = '';
+
+      this.transformimg = setInterval( function () {
+        rorate += 5;
+        rorate_css = 'rotate(' + rorate + 'deg)';
+        icon.css('-webkit-transform', rorate_css);
+      }, 5);
+    },
+
+    loadMore : function () {
       this.render(this.opts);
     },
 
-    render: function (opts) {
+    render : function (opts) {
       var self = this;
 
       // Get 10 Diaries From API, also Load Sidebar
@@ -65,7 +78,7 @@ define(function (require) {
 
     },
 
-    firstRender: function (resp) {
+    firstRender : function (resp) {
       var self = this;
 
       dust.render('tpl_home', resp, function (err, out) {
@@ -85,10 +98,13 @@ define(function (require) {
 
     },
 
-    moreRender: function (resp) {
+    moreRender : function (resp) {
       var self = this;
       dust.render('tpl_diary_list', resp, function (err, out) {
         self.$el.find('#blogList').append(out);
+
+        // stop transforming to reduce CPU time
+        clearInterval(self.transformimg);
 
         // refresh base function
         self.refresh();

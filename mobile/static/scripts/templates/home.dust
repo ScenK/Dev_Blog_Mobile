@@ -22,7 +22,7 @@
     <!-- Loader -->
     <div class="greyBg cutOffStripesContainer hover">
      <div class="cutOffStripeTop"></div>
-     <div class="webFont">V</div>
+     <div class="webFont"><div id="loading_more">V</div></div>
      <div class="cutOffStripeBottom"></div>
    </div>
    <!-- =Loader -->
