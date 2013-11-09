@@ -45,12 +45,8 @@ define(function (require) {
     },
 
     setCookie : function (userprofile) {
-      var profile = this.loadCookie();
-
-      // if( profile.username !== null && profile.email !== null ) {
-        Tools.setCookie('username', userprofile.username, 30);
-        Tools.setCookie('email', userprofile.email, 30);
-      // }
+      Tools.setCookie('username', userprofile.username, 30);
+      Tools.setCookie('email', userprofile.email, 30);
     },
 
     loadCookie : function () {
