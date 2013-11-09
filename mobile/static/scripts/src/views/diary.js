@@ -34,10 +34,32 @@ define(function (require) {
 
         this.comment.saveComment(data).done(function (resp) {
           self.insertComment(data);
+          self.setCookie(data);
+
+          // empty comment-form value
+          u_comment.val('');
         });
         
       }
       
+    },
+
+    setCookie : function (userprofile) {
+      var profile = this.loadCookie();
+
+      // if( profile.username !== null && profile.email !== null ) {
+        Tools.setCookie('username', userprofile.username, 30);
+        Tools.setCookie('email', userprofile.email, 30);
+      // }
+    },
+
+    loadCookie : function () {
+      var resp = {
+        username:  Tools.getCookie('username'),
+        email: Tools.getCookie('email')
+      };
+
+      return resp;
     },
 
     insertComment : function (comment) {
@@ -79,9 +101,13 @@ define(function (require) {
       var self = this;
 
       // Get Diary Detail By id
-      this.diary.fetchDiaryDetail(self.id).done( function (data) {
+      $.when(
+        this.diary.fetchDiaryDetail(self.id),
+        this.loadCookie()
+      ).done( function (data, userprofile) {
         var response = {
-          data: data
+          data: data,
+          guest: userprofile
         };
         dust.render('tpl_diary_detail', response, function (err, out) {
           self.$el.off().html(out);
