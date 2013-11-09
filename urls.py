@@ -3,4 +3,5 @@ from mobile.handlers import *
 
 urls = [
     (r'/', HomeHandler),
+    (r'.*', RedirectHandler)
 ]

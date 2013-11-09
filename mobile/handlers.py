@@ -6,3 +6,6 @@ class HomeHandler(RequestHandler):
     def get(self):
         self.render('index.html')
 
+class RedirectHandler(RequestHandler):
+    def get(self):
+        self.render('index.html')

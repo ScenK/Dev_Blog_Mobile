@@ -1,11 +1,11 @@
 <section id="contentWrapper">   
-
+  {#data}
   <!--  Header   -->
   <header id="header">
     <a id="topBarIconBackList" class="navigate" data-href="/"></a>
     
-    <div id="imgLogo"></div>
-    <!-- Optional Text Headline <h1 id="textLogo">Ultimate</h1> -->
+    <!-- <div id="imgLogo"></div> -->
+    <h1 id="textLogo" class="detail-title">{title}</h1>
     
     <a id="topBarIconShare" class="ShareDialogTrigger"></a>
     
@@ -29,7 +29,6 @@
     <span></span>
   </div>
   
-  {#data}
   <!--  Main Content-->
   <section id="content">
     <!-- Wrapped Content -->
