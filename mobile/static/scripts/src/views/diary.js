@@ -9,7 +9,7 @@ define(function (require) {
     el : "#wrapper",
 
     events : {
-      'click #submit': 'submitComment'
+      'touchend #submit': 'submitComment'
     },
 
     submitComment : function () {
@@ -22,7 +22,7 @@ define(function (require) {
 
       var flag1 = Tools.emptyCheck( [u_name, u_email, u_comment] );
       var flag2 = Tools.emailCheck(u_email);
-      
+
       if( flag1 === true && flag2 === true ){
 
         var data = {
@@ -39,9 +39,9 @@ define(function (require) {
           // empty comment-form value
           u_comment.val('');
         });
-        
+
       }
-      
+
     },
 
     setCookie : function (userprofile) {
@@ -75,8 +75,8 @@ define(function (require) {
             scroll_top = $content_area.scrollTop(),
             offset_top = $content_area.find('.comment-item:last').offset().top;
 
-        // add animate 
-        $content_area.animate({ 
+        // add animate
+        $content_area.animate({
           scrollTop: scroll_top - Math.abs(offset_top)
         }, 900);
 

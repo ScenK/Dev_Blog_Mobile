@@ -5,17 +5,17 @@ define(function (require) {
   var Base = Backbone.View.extend({
 
     init: function () {
-      $('.navigate').on('click', this.navigate);
-      $('#topBarIconMenu').on('click', this.toggleMenu);
-      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').on('click', this.toggleActive);
-      $('.ShareDialogTrigger').on('click', this.toggleShareMenu);
+      $('.navigate').on('touchend', this.navigate);
+      $('#topBarIconMenu').on('touchend', this.toggleMenu);
+      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').on('touchend', this.toggleActive);
+      $('.ShareDialogTrigger').on('touchend', this.toggleShareMenu);
     },
 
     refresh: function () {
-      $('.navigate').off('click', this.navigate);
-      $('#topBarIconMenu').off('click', this.toggleMenu);
-      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').off('click', this.toggleActive);
-      $('.ShareDialogTrigger').off('click', this.toggleShareMenu);
+      $('.navigate').off('touchend', this.navigate);
+      $('#topBarIconMenu').off('touchend', this.toggleMenu);
+      $('.shareDialogIconList li, #topBarIconMenu, #topBarIconBackList, #topBarIconShare, #listMenu li, .hover, #blogList li, #contactInfoMetaShare, #contactInfoMetaMail, #contactInfoMetaCall').off('touchend', this.toggleActive);
+      $('.ShareDialogTrigger').off('touchend', this.toggleShareMenu);
       this.init();
     },
 
