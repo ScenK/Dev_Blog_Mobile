@@ -32,13 +32,12 @@ define(function (require) {
           comment  : u_comment.val()
         }
 
-        this.comment.saveComment(data).done(function (resp) {
-          self.insertComment(data);
-          self.setCookie(data);
+        this.comment.saveComment(data);
+        this.insertComment(data);
+        this.setCookie(data);
 
-          // empty comment-form value
-          u_comment.val('');
-        });
+        // empty comment-form value
+        u_comment.val('');
 
       }
 
