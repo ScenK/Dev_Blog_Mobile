@@ -15,6 +15,7 @@ requirejs.config({
     'text': 'vendor/text',
 
     // jQuery plugins
+    'hammer': 'vendor/jquery.hammer'
   },
 
   // for js plugins that don't support AMD out of the box
