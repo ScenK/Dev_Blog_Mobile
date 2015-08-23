@@ -1,0 +1,12 @@
+{
+  "name": "Dev_Blog_Mobile",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node ./blog/app.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-react-views": "^0.8.2",
+    "react": "^0.13.3"
+  }
+}
