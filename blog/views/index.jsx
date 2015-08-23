@@ -1,7 +1,8 @@
-var React = require('react');
-var DefaultLayout = require('./layouts/default');
+import React from 'react';
+import DefaultLayout from './layouts/default'
 
-var HelloMessage = React.createClass({
+var Home = React.createClass({
+
   render: function() {
     return (
       <DefaultLayout title={this.props.title}>
@@ -11,4 +12,4 @@ var HelloMessage = React.createClass({
   }
 });
 
-module.exports = HelloMessage;
+module.exports = Home;
