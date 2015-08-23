@@ -1,12 +1,13 @@
 import React from 'react';
-import DefaultLayout from './layouts/default'
+import DefaultLayout from './layouts/default';
+import DiaryList from './components/DiaryList';
 
 var Home = React.createClass({
 
   render: function() {
     return (
       <DefaultLayout title={this.props.title}>
-        <div>Hello {this.props.name}</div>
+        <DiaryList/>
       </DefaultLayout>
     );
   }
