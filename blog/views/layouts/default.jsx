@@ -5,7 +5,7 @@ var DefaultLayout = React.createClass({
     return (
       <html>
         <head>
-          <title>{this.props.title}</title>
+            <title>{this.props.title}</title>
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
             <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -17,7 +17,7 @@ var DefaultLayout = React.createClass({
 
               <header id="header">
                 <a id="topBarIconMenu"></a>
-                <h1 id="textLogo">Sea_Kudo的博客</h1>
+                <h1 id="textLogo">{this.props.title}</h1>
               </header>
 
               <div className="siteLoader">
@@ -28,9 +28,7 @@ var DefaultLayout = React.createClass({
 
               <section id="content">
 
-                <ul id="blogList">
-                  {this.props.children}
-                </ul>
+                {this.props.children}
 
                 <div className="greyBg cutOffStripesContainer hover">
                   <div className="cutOffStripeTop"></div>
