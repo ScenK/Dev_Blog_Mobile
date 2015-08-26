@@ -18,7 +18,6 @@ var fetchData = require('./utils/fetchData');
 var app = require("./app");
 var CustomFluxibleComponent = require('./components/CustomFluxibleComponent');
 var provideContext = require('fluxible/addons/provideContext');
-var AuthActions = require('./actions/AuthActions');
 var apiService = require('./services')
 var HtmlComponent = React.createFactory(require('./components/Html'))
 var config = require('./configs');
@@ -58,7 +57,6 @@ server.use(function (req, res, next) {
             _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
         }
     });
-    context.getActionContext().executeAction(AuthActions.LoadSession, {}, function () {
         var router = Router.create({
             routes: routes,
             location: req.path,
@@ -93,8 +91,6 @@ server.use(function (req, res, next) {
                 res.send(doctype + html)
             });
         });
-
-    })
 });
 
 module.exports = server;

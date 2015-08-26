@@ -1,6 +1,3 @@
-/**
- * Created by hshen on 6/7/2015.
- */
 var concurrent = require('contra').concurrent;
 var _ = require('lodash');
 
