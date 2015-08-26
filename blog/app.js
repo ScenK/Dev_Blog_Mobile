@@ -1,26 +1,26 @@
-var express = require('express');
-var reactViews = require('express-react-views');
+/**
+ * Created by hshen on 6/26/2015.
+ */
+var Fluxible = require('fluxible');
+var fetchrPlugin = require('fluxible-plugin-fetchr');
 
-var app = express();
-
-// react views
-app.set('view engine', 'jsx');
-app.set('views', __dirname + '/views');
-var options = { beautify: true };
-app.engine('jsx', reactViews.createEngine(options));
-
-// static resource
-app.use(express.static(__dirname + '/public'));
-
-// routes
-app.get('/', require('./routes').index);
-
-// server
-app.set('port', process.env.PORT || 3000);
-
-var server = app.listen(app.get('port'), function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
+var app = new Fluxible({
+    component: require('./routes')
 });
+
+app.plug(fetchrPlugin({
+    xhrPath: '/api',
+    xhrTimeout:30000
+}));
+
+app.plug(require('./plugins/cookie'));
+app.plug(require('./plugins/language'));
+app.plug(require('./plugins/config'));
+app.plug(require('./plugins/router')());
+
+app.registerStore(require('./stores/AuthStore'));
+app.registerStore(require('./stores/TestingHistoryStore'));
+app.registerStore(require('./stores/LanguageStore'));
+app.registerStore(require('./stores/PageMetaDataStore'));
+
+module.exports = app;

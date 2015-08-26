@@ -1,0 +1,6 @@
+{
+  "watch": ["blog/bin/www","blog/*"],
+  "ignore":["blog/public/**/*.js"],
+  "ext": "js jsx json",
+  "verbose": false
+}
