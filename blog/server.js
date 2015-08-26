@@ -43,7 +43,6 @@ server.use(express.static(path.join(__dirname, 'public')));
 var fetchrPlugin = app.getPlugin('FetchrPlugin');
 
 fetchrPlugin.registerService(apiService.user);
-fetchrPlugin.registerService(apiService.testinghistory);
 
 server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
 

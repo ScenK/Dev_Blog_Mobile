@@ -14,7 +14,6 @@ app.plug(require('./plugins/cookie'));
 app.plug(require('./plugins/config'));
 app.plug(require('./plugins/router')());
 
-app.registerStore(require('./stores/TestingHistoryStore'));
 app.registerStore(require('./stores/PageMetaDataStore'));
 
 module.exports = app;

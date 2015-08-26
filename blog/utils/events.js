@@ -1,6 +1,3 @@
-/**
- * Created by hshen on 6/29/2015.
- */
 module.exports = {
 
     once: function(el, type, callback) {
