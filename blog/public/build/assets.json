@@ -1,6 +1,6 @@
 {
     "assets": {
-        "main": "http://127.0.0.1:5656/build/js/main.js,0.652e790f2203aa1511e2.hot-update.js",
+        "main": "http://127.0.0.1:5656/build/js/main.js,0.ced89fb7ae7921f2c972.hot-update.js",
         "common": "http://127.0.0.1:5656/build/js/common.js"
     },
     "cdnPath": "http://127.0.0.1:5656/build/js"

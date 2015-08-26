@@ -2,7 +2,6 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, RouteHandler, Link } = Router;
 var concurrent = require('contra').concurrent;
-var FullScreen = require('./UI/FullScreen');
 var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 var ReactIntl = require('react-intl');
 var {
@@ -23,9 +22,7 @@ var App = React.createClass({
         }
 
         return (
-            <FullScreen id="app">
-                <RouteHandler {...appInitData}/>
-            </FullScreen>
+            <RouteHandler {...appInitData}/>
         )
     }
 })

@@ -9,14 +9,14 @@ var {
     }=Router;
 var {
     App,
-    List,
+    Home,
     Login,
     NotFound
     }=require('./components');
 // declare our routes and their hierarchy
 var routes = (
     <Route name="app" handler={App} path="/">
-        <Route name="list" path="/" handler={List}/>
+        <Route name="home" path="/" handler={Home}/>
         <Route name="login" path="/login" handler={Login}/>
         <NotFoundRoute handler={NotFound}/>
     </Route>
