@@ -1,6 +1,3 @@
-/**
- * Created by hshen on 6/26/2015.
- */
 var Fluxible = require('fluxible');
 var fetchrPlugin = require('fluxible-plugin-fetchr');
 
@@ -14,13 +11,11 @@ app.plug(fetchrPlugin({
 }));
 
 app.plug(require('./plugins/cookie'));
-app.plug(require('./plugins/language'));
 app.plug(require('./plugins/config'));
 app.plug(require('./plugins/router')());
 
 app.registerStore(require('./stores/AuthStore'));
 app.registerStore(require('./stores/TestingHistoryStore'));
-app.registerStore(require('./stores/LanguageStore'));
 app.registerStore(require('./stores/PageMetaDataStore'));
 
 module.exports = app;

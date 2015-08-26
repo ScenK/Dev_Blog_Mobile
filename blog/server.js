@@ -23,7 +23,6 @@ var apiService = require('./services')
 var HtmlComponent = React.createFactory(require('./components/Html'))
 var config = require('./configs');
 var assets = require('./utils/assets');
-var Language = require('./utils/language');
 var serverConfig = require('./configs/server')
 var server = express();
 
@@ -32,8 +31,6 @@ var customContextTypes = {
 };
 
 // view engine setup
-server.set('views', path.join(__dirname, 'views'));
-server.set('view engine', 'jade');
 server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
