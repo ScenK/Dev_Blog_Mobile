@@ -1,6 +1,3 @@
-/**
- * Created by hshen on 6/29/2015.
- */
 var React = require('react');
 var { provideContext, connectToStores } =require('fluxible/addons');
 var Html = React.createClass({
@@ -30,7 +27,6 @@ var Html = React.createClass({
 // connect to stores
 Html = connectToStores(Html, ['PageMetaDataStore'], function (stores, props) {
     var title = stores.PageMetaDataStore.getCurrentMetadata().title || 'Texas Assessment Data Portal';
-    console.log(title)
     return {
         title: title
     };
