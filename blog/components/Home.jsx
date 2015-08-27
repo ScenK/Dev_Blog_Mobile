@@ -5,6 +5,10 @@ import FluxibleMixin from 'fluxible/addons/FluxibleMixin';
 
 import SideBar from './UI/SideBar';
 import Header from './UI/Header';
+import SiteLoader from './UI/SiteLoader';
+import DiaryList from './UI/DiaryList';
+import DiaryLoader from './UI/DiaryLoader';
+
 
 var Home = React.createClass({
 
@@ -21,7 +25,17 @@ var Home = React.createClass({
 
         <section id="contentWrapper">
           <Header />
+
+          <SiteLoader />
+
+          <section id="content" className="activeState">
+            <DiaryList />
+
+            <DiaryLoader />
+          </section>
+
         </section>
+
       </div>
     )
   }
